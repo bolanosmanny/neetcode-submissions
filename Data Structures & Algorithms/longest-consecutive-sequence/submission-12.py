@@ -1,10 +1,20 @@
 class Solution:
-    def isPalindrome(self, s: str) -> bool:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        numSet = set(nums)
+        longest = 0
 
-        newStr =''
+        for n in numSet:
+            if n-1 not in numSet:
+                length = 0
 
-        for c in s:
-            if c.isalnum():
-                newStr += c.lower()
+                while(n+length) in numSet:
+                    length+=1 
+                longest = max(length,longest)
 
-        return newStr == newStr[::-1]
+        return longest
+
+
+
+
+            
+        
